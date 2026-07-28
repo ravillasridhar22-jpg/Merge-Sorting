@@ -1,0 +1,39 @@
+// C++ program for the implementation of Insertion Sort
+#include <bits/stdc++.h>
+using namespace std;
+
+void insertionSort(vector<int>& v) {
+    int n = v.size();
+
+    // Traverse through the array
+    for (int i = 1; i < n; i++) {
+
+        // Store the current element
+        int key = v[i];
+
+        // Move elements greater than key
+        // one position ahead
+        int j = i - 1;
+
+        while (j >= 0 && v[j] > key) {
+            v[j + 1] = v[j];
+            j--;
+        }
+
+        // Place the key in its correct position
+        v[j + 1] = key;
+    }
+}
+
+int main() {
+    vector<int> v = {12, 11, 13, 5, 6};
+
+    // Sorting the vector
+    insertionSort(v);
+
+    cout << "Sorted array: ";
+    for (auto i : v)
+        cout << i << " ";
+
+    return 0;
+}
